@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Tracker System</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+ crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div style="background-color: black;" class="container-fluid">
+      <a style="font-size: 40px; color: aliceblue;" class="navbar-brand" href="#">Student Grade Tracker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul style="font-size: 20px; font-weight: bold;" class="navbar-nav">
+          <li style="margin-left: 250%;" class="nav-item">
+            <a style="color: aliceblue;" class="nav-link" aria-current="page" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a style="color: aliceblue;" class="nav-link" href="/feed">FeedBack</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container col-4">
+    
+    <h2>Update Student</h2>
+
+    <form action="#" th:action="@{/saveStudents}" th:object="${student}" method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{student_id}" />
+
+        <div class="form-group">
+        <label for="studentId">Roll No:</label>
+        <input type="text" th:field="*{student_id}" class="form-control mb-2 col-4" placeholder="Roll No">
+    </div>
+    
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" class="form-control mb-2 col-4" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+        <label for="english">English:</label>
+        <input type="text" th:field="*{english}" class="form-control mb-2 col-4" placeholder="English">
+    </div>
+
+    <div class="form-group">
+        <label for="hindi">Hindi:</label>
+        <input type="text" th:field="*{hindi}" class="form-control mb-2 col-4" placeholder="Hindi">
+    </div>
+
+    <div class="form-group">
+        <label for="maths">Maths:</label>
+        <input type="text" th:field="*{maths}" class="form-control mb-2 col-4" placeholder="Maths">
+    </div>
+
+    <div class="form-group">
+        <label for="physics">Physics:</label>
+        <input type="text" th:field="*{physics}" class="form-control mb-2 col-4" placeholder="Physics">
+    </div>
+
+    <div class="form-group">
+        <label for="chemistry">Chemistry:</label>
+        <input type="text" th:field="*{chemistry}" class="form-control mb-2 col-4" placeholder="Chemistry">
+    </div>
+
+        <button type="submit" class="btn btn-info col-4">Update Student</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}">Back to Student List</a>
+</div>
+</body>
+</html>
