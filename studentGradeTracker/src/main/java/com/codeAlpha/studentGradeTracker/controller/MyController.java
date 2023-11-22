@@ -24,13 +24,13 @@ public class MyController {
 	@Autowired
 	public MyController(StudentServices studentServices) {
         this.studentServices = studentServices;
-    }
+        }
 	
 	@GetMapping("/")
-    public String viewHomePage(Model model) {
+        public String viewHomePage(Model model) {
         model.addAttribute("listStudents", studentServices.getStudent());
         return "index.html";
-    }
+        }
 	// Add student form
 	@GetMapping("/addNewStudentForm")   
 	public String addNewStudentForm(Model model) {
@@ -39,7 +39,7 @@ public class MyController {
 		return "addNewStudent";
 	}
 	 
-	//add a student 
+	       //add a student 
 		@PostMapping("/students")
 		public String addStudent(@ModelAttribute("student") Student student)
 		{
@@ -49,15 +49,12 @@ public class MyController {
 		
 		//Update student form
 		@GetMapping("/showFormForUpdate/{id}")
-	    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+	        public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
-	        // get employee from the service
 	        Student student = studentServices.getStudent(id);
-
-	        // set employee as a model attribute to pre-populate the form
 	        model.addAttribute("student", student);
 	        return "update_student";
-	    }
+	        }
 		
 		//updating student
 		@PostMapping("/saveStudents")
